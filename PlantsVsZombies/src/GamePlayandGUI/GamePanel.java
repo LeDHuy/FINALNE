@@ -48,7 +48,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     JLabel sunScoreboard; // Displays the player's current sun score
 
     GameWindow.PlantType activePlantingBrush = GameWindow.PlantType.None; // Tracks the currently selected plant type
-    sound Sound = new sound(); // Handles sound effects and music
+    static sound Sound = new sound(); // Handles sound effects and music
     int mouseX, mouseY; // Current mouse cursor position
 
     private int sunScore; // Tracks the player's available sun currency
@@ -306,6 +306,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
            if("1".equals(LevelData.Lvl)) {
             JOptionPane.showMessageDialog(null,"Level Completed !!!" + '\n' + "Starting next Level");
             GameWindow.gw.dispose();
+            Sound.stop();
             LevelData.write("2");
             GameWindow.gw = new GameWindow();
             }  else {
